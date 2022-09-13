@@ -3,8 +3,8 @@
 /**
  * main -Entry point
  *
- * Description: A program that prints to the standard output using printf function
- * Return: Always 0 
+ * Description: Prints to the standard output using printf function
+ * Return: Always 0
  */
 int main(void)
 {
