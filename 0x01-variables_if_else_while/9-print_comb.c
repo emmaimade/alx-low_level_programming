@@ -3,19 +3,22 @@
 /**
  * main - main block
  *
- * Description: Prints all the numbers of base16 in lowercase
+ * Description: Prints all possible combination of Single-digits
  * Return: 0
  */
 int main(void)
 {
 	int i;
-	char c;
 
 	for (i = 0; i < 10; i++)
+	{
 		putchar(i + '0');
-	for (c = 'a'; c < 'g'; c++)
-		putchar(c);
-
+		if (i < 9)
+		{
+			putchar(44);
+			putchar(32);
+		}
+	}
 	putchar('\n');
 	return (0);
 }
