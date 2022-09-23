@@ -7,45 +7,42 @@
 */
 void print_number(int n)
 {
-	/*if (n > 9)
-	{
-		_putchar((n / 10) + '0');
-		_putchar((n % 10) + '0');
-	}
-	else if (n < 0)
-	{
-		_putchar((n / 10) + '0');
-		_putchar((n % 10) + '0');
-	}
-	else 
-		_putchar(n + '0');*/
-		long len, res, i, temp, expo;
+	char ld, cr;
+	int r;
+	int ct = 0;
 
-	res = n;
-	expo = len =  1;
-/*Check negatives*/
-	if (res < 0)
+	if (n < 0)
 	{
-		res *= -1;
-		_putchar('-');
+		_putchar ('-');
+		ld = (char)('0' - (n % 10));
+		n = n / -10;
 	}
 
-/**/
-	temp = res;
-	while (temp >= 10)
-	{
-		len++;
-		temp /= 10;
+		else
+		{
+			ld = (char)((n % 10) + '0');
+		n = n / 10;
 	}
 
-/*Create Exponent*/
-	for (i = 1; i < len; i++)
-		expo *= 10;
-/*Main */
-	while (expo > 1)
+	r = 0;
+	while (n > 0)
 	{
-		_putchar((res / expo) % 10 + '0');
-		expo /= 10;
+		r = r * 10 + (n % 10);
+		n = n / 10;
+		ct++;
 	}
-	_putchar(res % 10 + '0');
+
+	while (r > 0)
+	{
+		cr = (char)((r % 10) + '0');
+		_putchar(cr);
+		r = r / 10;
+		ct--;
+	}
+	while (ct != 0)
+	{
+		_putchar('0');
+			ct--;
+	}
+	_putchar(ld);
 }
