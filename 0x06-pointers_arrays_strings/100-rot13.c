@@ -9,18 +9,24 @@
 char *rot13(char *c)
 {
 	int i, j;
-	char n[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char r[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	for (i = 0; c[i] != '\0'; i++)
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	i = 0;
+	while (c[i] != '\0')
 	{
-		for (j = 0; j < 56; j++)
+		j = 0;
+		while (alpha[j] != '\0')
 		{
-			if (c[i] == n[j])
+			if (c[i] == alpha[j])
 			{
-				c[i] = r[j];
+				c[i] = rot[j];
+				break;
 			}
+			j++;
 		}
+		i++;
 	}
 	return (c);
 }
